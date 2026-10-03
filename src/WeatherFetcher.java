@@ -92,6 +92,7 @@ public class WeatherFetcher {
            double first = Double.parseDouble(temps[0].trim()) * 9/5 + 32;
             double max = 0;
             double min = 0;
+            double sum = first;
 
             for (int i = 1; i < temps.length; i++) {
                 // Parse each temperature string to a double and convert to Fahrenheit
@@ -101,13 +102,16 @@ public class WeatherFetcher {
                 }
                 if (fahrenheit < min) {
                     min = fahrenheit;
-                }
-                
+                } 
+                sum += fahrenheit;
                 // System.out.println(fahrenheit); // Print the result with no extra formatting
             }
+            
+            double average = sum / temps.length;
 
-            System.out.printf("Max: %.2f%n", + max);
-            System.out.printf("Min: %.2f%n", + min);
+            System.out.printf("Max: %.2f%n", max);
+            System.out.printf("Min: %.2f%n", min);
+            System.out.printf("Average: %.2f%n", average);
         }
     }
 
